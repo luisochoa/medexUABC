@@ -5,14 +5,37 @@ using System.Text;
 using System.Threading.Tasks;
 using NUnit.Framework;
 
-namespace DrugAdministrationTest
+namespace MedexTest.Controllers.Tests
 {
     [TestFixture]
     public class HappyPathTest
     {
         [Test]
-        public void ShouldReturnDateNotNull() { 
+        public void ShouldReturnDateNonNull()
+        {
+            //Disponer
+            var sut = new ValuesController();
+          
+            // Actuar
+
+            //declarar
+
+        }
+
+        [Test]
+        public void ShouldReturnDateOrderYearMothDay()
+        { 
+            //Disponer
+            var sut = new ValuesController();
+            DateTime thisDay = DateTime.Today;
+
+            // Actuar
+            var result = "2015/06/16";
+            var expected = thisDay.ToString();
             
+            //Declarar
+            Assert.That(result,expected);
+        
         }
     }
 }
