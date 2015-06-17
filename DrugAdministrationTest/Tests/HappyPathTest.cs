@@ -22,6 +22,18 @@ namespace MedexTest.Controllers.Tests
         }
 
         [Test]
+        public void ShouldReturnDateNonNull()
+        {
+            //Disponer
+            var sut = new ValuesController();
+
+            // Actuar
+
+            //declarar
+
+        }
+
+        [Test]
         public void ShouldReturnDateOrderYearMothDay()
         {
             //Disponer
@@ -34,7 +46,6 @@ namespace MedexTest.Controllers.Tests
 
             //Declarar
             Assert.That(result, expected);
-
         }
     }
 }
