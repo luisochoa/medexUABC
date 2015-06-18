@@ -11,9 +11,7 @@ namespace MedexTest.Controllers.Tests
     [TestFixture]
     public class HappyPathTest
     {
-        /// <summary>
         /// Debe generar un reporte "A"
-        /// </summary>
 
         /** a1 **/
         [Test]
@@ -34,7 +32,7 @@ namespace MedexTest.Controllers.Tests
         }
 
         [Test]
-        public void ShouldReturnDateOrderYearMothDay()
+        public void ShouldReturnDateOrderYearMonthDay()
         {
             DateTimeFormatInfo dtfi = CultureInfo.CreateSpecificCulture("en-US").DateTimeFormat;
             DateTime date = DateTime.Today;
@@ -55,32 +53,70 @@ namespace MedexTest.Controllers.Tests
 
         }
 
+        //[Test]
+        //public void ShouldReturnDateNull() { 
+        //    //Disponer
+        //     var sut = new ValuesController(); 
+
+        //    //Actuar
+        //     var result = DateTime.Today;  // se espera que retorne un null metodo de obtener fecha
+        //     DateTime? expected = null;
+
+        //    //Declarar
+        //     Assert.AreEqual(expected, result);
+
+        //}
+
+        /*A.2*/
         [Test]
-        public void ShouldReturnDateNull()
+        public void ShouldReturnTimeNotNull()
         {
+            DateTime dt = DateTime.Today;
+
             //Disponer
             var sut = new ValuesController();
 
             //Actuar
-            var result = DateTime.Today;  // se espera que retorne un null metodo de obtener fecha
-            DateTime? expected = null;
+            //sut.metodo se espera que el metodo regrese un string con la hora
+            //el string se debe separar con split('/')
+
+            string resultHour = dt.Hour.ToString();
+            string resultMin = dt.Minute.ToString();
+            string resultSec = dt.Second.ToString();
+            string notExpected = null;
+
+            //Declarar
+            Assert.AreNotEqual(notExpected, resultHour);
+            Assert.AreNotEqual(notExpected, resultMin);
+            Assert.AreNotEqual(notExpected, resultSec);
+        }
+
+        [Test]
+        public void ShouldReturnStringOrderHourMinuteSecond()
+        {
+            DateTime dt = DateTime.Now;
+
+            //Disponer
+            var sut = new ValuesController();
+
+            //Actuar
+            string result = "12:12:12"; //sut.metodo debe retornar un string con la hora, por parametros recibe un datetime "dt"     
+            string expected = dt.ToString("HH:mm:ss");
 
             //Declarar
             Assert.AreEqual(expected, result);
-
         }
 
-
-        /*a2*/
         [Test]
-        public void ShouldReturn()
-        {
+        public void ShouldReturnTypeDataDatetime()
+        { 
             //Disponer
+            var sut = new ValuesController();
 
             //Actuar
-
-            //Declarar
-
+            DateTime result = 
+            //Declarar 
         }
+    
     }
 }
