@@ -104,13 +104,35 @@ namespace DrugAdministrationTest
 
         //a.2.6.1
         [Test]
-        public void Should_Return_Hour_Not_In_Range() 
+        public void Hour_Not_In_Range() 
         {
             var sut = new ValuesController();
 
             var hour = DateTime.Today.Hour; //sut.method();
 
-            Assert.That(hour, Is.EqualTo(0).Within(59).Hours);
+            Assert.That(hour, Is.EqualTo(0).Within(23).Hours);
+        }
+
+        //a.2.6.2
+        [Test]
+        public void Minute_Not_In_Range()
+        {
+            var sut = new ValuesController();
+
+            var minute = DateTime.Today.Hour; //sut.method();
+
+            Assert.That(minute, Is.EqualTo(0).Within(59).Minutes);
+        }
+
+        //a.2.6.3
+        [Test]
+        public void Second_Not_In_Range()
+        {
+            var sut = new ValuesController();
+
+            var second = DateTime.Today.Hour; //sut.method();
+
+            Assert.That(second, Is.EqualTo(0).Within(59).Seconds);
         }
 
     }
