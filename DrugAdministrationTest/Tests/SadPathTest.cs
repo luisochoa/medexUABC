@@ -8,6 +8,7 @@ using MedexTest.Controllers;
 
 namespace DrugAdministrationTest
 {
+    [TestFixture]
     class SadPathTest
     {
         //a.1.1
@@ -102,6 +103,8 @@ namespace DrugAdministrationTest
             Assert.IsNotInstanceOf<DateTime>(time);
         }
 
+        /**** Cambio al constraint model de aquí en adelante, es más completo ****/
+
         //a.2.6.1
         [Test]
         public void Hour_Not_In_Range() 
@@ -135,5 +138,13 @@ namespace DrugAdministrationTest
             Assert.That(second, Is.InRange(0, 59));
         }
 
+        //a.3.1
+        [Test]
+        public void Should_Return_Null_Name()
+        {
+            var sut = new ValuesController();
+            
+
+        }
     }
 }
