@@ -53,19 +53,20 @@ namespace MedexTest.Controllers.Tests
 
         }
 
-        //[Test]
-        //public void ShouldReturnDateNull() { 
-        //    //Disponer
-        //     var sut = new ValuesController(); 
+        [Test]
+        public void ShouldReturnDateNull()
+        {
+            //Disponer
+            var sut = new ValuesController();
 
-        //    //Actuar
-        //     var result = DateTime.Today;  // se espera que retorne un null metodo de obtener fecha
-        //     DateTime? expected = null;
+            //Actuar
+            var result = DateTime.Today;  // se espera que retorne un null metodo de obtener fecha
+            DateTime? expected = null;
 
-        //    //Declarar
-        //     Assert.AreEqual(expected, result);
+            //Declarar
+            Assert.AreEqual(expected, result);
 
-        //}
+        }
 
         /*A.2*/
         [Test]
@@ -114,9 +115,16 @@ namespace MedexTest.Controllers.Tests
             var sut = new ValuesController();
 
             //Actuar
-            DateTime result = 
+            DateTime result = DateTime.Now;  //sut.metodo retorna un tipo de dato datetime
+            DateTime expected = DateTime.Now;
+            
             //Declarar 
+            Assert.IsTrue(typeof(DateTime).IsInstanceOfType(result));
+            
         }
+
+        [Test]
+        public void ShouldReturn
     
     }
 }
