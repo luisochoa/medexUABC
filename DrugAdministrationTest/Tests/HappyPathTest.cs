@@ -108,7 +108,8 @@ namespace MedexTest.Controllers.Tests
         }
 
         [Test]
-        public void ShouldReturnTypeDataDatetime() { 
+        public void ShouldReturnTypeDataDatetime()
+        { 
             //Disponer
             var sut = new ValuesController();
 
@@ -116,5 +117,6 @@ namespace MedexTest.Controllers.Tests
             DateTime result = 
             //Declarar 
         }
+    
     }
 }
