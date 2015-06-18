@@ -31,6 +31,11 @@ namespace MedexTest.Controllers
         {
         }
 
+        public DateTime GetDate()
+        {
+            return DateTime.Today;
+        }
+
         // DELETE api/values/5
         public void Delete(int id)
         {

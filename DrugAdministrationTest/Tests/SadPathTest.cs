@@ -10,7 +10,7 @@ namespace DrugAdministrationTest
 {
     class SadPathTest
     {
-
+        //a.1 1.1
         [Test]
         [ExpectedException(typeof(NullReferenceException))]
         public void Should_Throw_NullReferenceException_In_Date()
@@ -24,17 +24,19 @@ namespace DrugAdministrationTest
 
         }
 
+        //a.1 1.1 de otra forma
         [Test]
         public void Should_Return_Null_Date()
         {
             var sut = new ValuesController();
 
-            var result = DateTime.Today;
-            DateTime? expected = null;
+            var date = DateTime.Today;
+           // DateTime? expected = null;
 
-            Assert.AreEqual(expected, result);
+            Assert.IsNull(date);
         }
-
+        //a.1 1.2
+        /* ¿Separar y checar cada campo en una prueba? */
         [Test]
         public void Should_Return_Date_Fields_Null()
         {
@@ -44,22 +46,57 @@ namespace DrugAdministrationTest
             var month = DateTime.Today.Month;
             var day = DateTime.Today.Day;
 
-            DateTime? expected = null;
+           // DateTime? expected = null;
 
-            Assert.AreEqual(expected, year);
-            Assert.AreEqual(expected, month);
-            Assert.AreEqual(expected, day);
-            
+            Assert.IsNull(year);
+            Assert.IsNull(month);
+            Assert.IsNull(day);
         }
 
+        //a.1 1.4
         [Test]
         public void Should_Return_Date_Without_DateTime_Type()
         {
             var sut = new ValuesController();
 
-
+            var date = DateTime.Today; //sut.method()
+            Assert.IsNotInstanceOf<DateTime>(date);
         }
-      
-        
+        //a.2 2.1
+        [Test]
+        public void Should_Return_Hour_Fields_Null()
+        {
+            var sut = new ValuesController();
+
+            var hour = DateTime.Today.Hour; // El values controller retorna un null
+            var minute = DateTime.Today.Minute;
+            var seconds = DateTime.Today.Second;
+
+            // DateTime? expected = null;
+
+            Assert.IsNull(hour);
+            Assert.IsNull(minute);
+            Assert.IsNull(seconds);
+        }
+
+        [Test]
+        public void Should_Return_Null_Hour()
+        {
+            var sut = new ValuesController();
+
+            var hour = DateTime.Today.Hour; //sut.methoid();
+            // DateTime? expected = null;
+
+            Assert.IsNull(hour);
+        }
+
+        [Test]
+        public void Should_Return_Hour_Without_DateTime_Type()
+        {
+            var sut = new ValuesController();
+
+            var hour = DateTime.Today.Hour; //sut.method();
+            Assert.IsNotInstanceOf<DateTime>(hour);
+        }
     }
 }
