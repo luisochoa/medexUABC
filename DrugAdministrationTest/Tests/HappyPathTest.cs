@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using NUnit.Framework;
 using System.Globalization;
+using DrugAdministrationTest.Tests;
 
 namespace MedexTest.Controllers.Tests
 {
@@ -168,6 +169,61 @@ namespace MedexTest.Controllers.Tests
             Assert.AreEqual(expected,result[0]);
         }
 
+
+        /*
+            Pruebas de vistas
+         */
         
+        //Generar Receta 
+
+        //1.0
+        [Test]
+        public void ShouldAddNewObjectWithNamePatient() {
+
+            RecetaPaciente rp; // objeto creado para sustituir el objeto
+
+            var sut = new ValuesController();
+
+            string expected = "luis";
+            rp = new RecetaPaciente(expected); // sut.metodo debe regresar el nombre del paciente dentro del objeto
+
+            Assert.AreEqual(expected, rp.namePatient);
+
+        }
+        
+        //1.1
+        [Test]
+        public void ShouldReturnListName(){
+              
+
+        }
+        
+        [Test]
+        public void ShouldAddNewObjectWithTheDoctorNameOfRecipeCreation() {
+            string namePatient = "luis";
+            RecetaPaciente rp = new RecetaPaciente(namePatient);
+
+            var sut = new ValuesController();
+
+            //para obtener el nombre del doctor es necesario haberlo capturado antes.
+            string expected = "Dr. Jose";
+
+            Assert.AreEqual(expected, rp.getNameDoctor());
+        }
+
+        [Test]
+        public void ShouldAddNewObjectWithDateOfRecipeCreation(){
+
+        } 
+
+        [Test]
+        public void ShouldAddNewObjectWithTimeOfRecipeCreation(){
+
+        }
+
+
     }
 }
+
+
+
