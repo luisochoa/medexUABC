@@ -10,7 +10,7 @@ namespace DrugAdministrationTest
 {
     class SadPathTest
     {
-        //a.1 1.1
+        //a.1.1
         [Test]
         [ExpectedException(typeof(NullReferenceException))]
         public void Should_Throw_NullReferenceException_In_Date()
@@ -24,7 +24,7 @@ namespace DrugAdministrationTest
 
         }
 
-        //a.1 1.1 de otra forma
+        //a.1.1 de otra forma
         [Test]
         public void Should_Return_Null_Date()
         {
@@ -35,7 +35,7 @@ namespace DrugAdministrationTest
 
             Assert.IsNull(date);
         }
-        //a.1 1.2
+        //a.1.2
         /* ¿Separar y checar cada campo en una prueba? */
         [Test]
         public void Should_Return_Date_Fields_Null()
@@ -53,7 +53,7 @@ namespace DrugAdministrationTest
             Assert.IsNull(day);
         }
 
-        //a.1 1.4
+        //a.1.4
         [Test]
         public void Should_Return_Date_Without_DateTime_Type()
         {
@@ -62,9 +62,10 @@ namespace DrugAdministrationTest
             var date = DateTime.Today; //sut.method()
             Assert.IsNotInstanceOf<DateTime>(date);
         }
-        //a.2 2.1
+
+        //a.2.1
         [Test]
-        public void Should_Return_Hour_Fields_Null()
+        public void Should_Return_Time_Fields_Null()
         {
             var sut = new ValuesController();
 
@@ -79,24 +80,38 @@ namespace DrugAdministrationTest
             Assert.IsNull(seconds);
         }
 
+        //a.2.2
         [Test]
-        public void Should_Return_Null_Hour()
+        public void Should_Return_Null_Time()
         {
             var sut = new ValuesController();
 
-            var hour = DateTime.Today.Hour; //sut.methoid();
+            var time = DateTime.Today.Hour; //sut.methoid();
             // DateTime? expected = null;
 
-            Assert.IsNull(hour);
+            Assert.IsNull(time);
         }
 
+        //a.2.5
         [Test]
-        public void Should_Return_Hour_Without_DateTime_Type()
+        public void Should_Return_Time_Without_DateTime_Type()
+        {
+            var sut = new ValuesController();
+
+            var time = DateTime.Today.Hour; //sut.method();
+            Assert.IsNotInstanceOf<DateTime>(time);
+        }
+
+        //a.2.6.1
+        [Test]
+        public void Should_Return_Hour_Not_In_Range() 
         {
             var sut = new ValuesController();
 
             var hour = DateTime.Today.Hour; //sut.method();
-            Assert.IsNotInstanceOf<DateTime>(hour);
+
+            Assert.That(hour, Is.EqualTo(0).Within(59).Hours);
         }
+
     }
 }
