@@ -11,7 +11,9 @@ namespace MedexTest.Controllers.Tests
     [TestFixture]
     public class HappyPathTest
     {
+        /// <summary>
         /// Debe generar un reporte "A"
+        /// </summary>
 
         /** a1 **/
         [Test]
@@ -19,10 +21,10 @@ namespace MedexTest.Controllers.Tests
         {
             //Disponer
             var sut = new ValuesController();
-            
+
             // Actuar
             string result = "2015/06/17"; //del metodo de obtener fecha se espera que roterne un valor diferente de nulo
-            string [] resultSeparation = result.Split('/');
+            string[] resultSeparation = result.Split('/');
             string notExpected = null;
 
             //declarar
@@ -32,87 +34,53 @@ namespace MedexTest.Controllers.Tests
         }
 
         [Test]
-        public void ShouldReturnDateOrderYearMonthDay()
+        public void ShouldReturnDateOrderYearMothDay()
         {
             DateTimeFormatInfo dtfi = CultureInfo.CreateSpecificCulture("en-US").DateTimeFormat;
             DateTime date = DateTime.Today;
             dtfi.DateSeparator = "/";
             dtfi.ShortDatePattern = @"yyyy/MM/dd";
-            
+
             //Disponer
             var sut = new ValuesController();
             DateTime thisDay = DateTime.Today;
 
             // Actuar
             var result = "2015/06/12";  //sut.metodo(date) recibe como parametro un DateTime y retorna
-                                        //en un string que tenga el orden de yyyy/MM/dd parte de la NOM
+            //en un string que tenga el orden de yyyy/MM/dd parte de la NOM
             var expected = date.ToString("d", dtfi);
-            
+
             //Declarar
-            StringAssert.Contains(expected,result);
-        
+            StringAssert.Contains(expected, result);
+
         }
 
-        //[Test]
-        //public void ShouldReturnDateNull() { 
-        //    //Disponer
-        //     var sut = new ValuesController(); 
-  
-        //    //Actuar
-        //     var result = DateTime.Today;  // se espera que retorne un null metodo de obtener fecha
-        //     DateTime? expected = null;
-
-        //    //Declarar
-        //     Assert.AreEqual(expected, result);
-
-        //}
-
-        /*A.2*/
         [Test]
-        public void ShouldReturnTimeNotNull() { 
-            DateTime dt = DateTime.Today;
-
+        public void ShouldReturnDateNull()
+        {
             //Disponer
             var sut = new ValuesController();
 
             //Actuar
-            //sut.metodo se espera que el metodo regrese un string con la hora
-            //el string se debe separar con split('/')
-
-            string resultHour = dt.Hour.ToString(); 
-            string resultMin = dt.Minute.ToString();
-            string resultSec = dt.Second.ToString();
-            string notExpected = null;
-            
-            //Declarar
-            Assert.AreNotEqual(notExpected,resultHour);
-            Assert.AreNotEqual(notExpected, resultMin);
-            Assert.AreNotEqual(notExpected, resultSec);
-        }
-
-        [Test]
-        public void ShouldReturnStringOrderHourMinuteSecond() { 
-            DateTime dt = DateTime.Now;
-            
-            //Disponer
-            var sut = new ValuesController();
-            
-            //Actuar
-            string result = "12:12:12"; //sut.metodo debe retornar un string con la hora, por parametros recibe un datetime "dt"     
-            string expected = dt.ToString("HH:mm:ss");  
+            var result = DateTime.Today;  // se espera que retorne un null metodo de obtener fecha
+            DateTime? expected = null;
 
             //Declarar
-            Assert.AreEqual(expected,result);
+            Assert.AreEqual(expected, result);
+
         }
 
+
+        /*a2*/
         [Test]
-        public void ShouldReturnTypeDataDatetime() { 
+        public void ShouldReturn()
+        {
             //Disponer
-            var sut = new ValuesController();
 
             //Actuar
-            DateTime result = 
-            //Declarar 
+
+            //Declarar
+
         }
     }
 }
