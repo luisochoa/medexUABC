@@ -12,6 +12,8 @@ namespace MedexTest.Controllers.Tests
     public class HappyPathTest
     {
         /// Debe generar un reporte "A"
+        /// Hola zules
+
 
         /** a1 **/
         [Test]
@@ -24,7 +26,7 @@ namespace MedexTest.Controllers.Tests
             string result = "2015/06/17"; //del metodo de obtener fecha se espera que roterne un valor diferente de nulo
             string[] resultSeparation = result.Split('/');
             string notExpected = null;
-
+    
             //declarar
             Assert.AreNotEqual(notExpected, resultSeparation[0]);
             Assert.AreNotEqual(notExpected, resultSeparation[1]);
