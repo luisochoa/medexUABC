@@ -124,7 +124,48 @@ namespace MedexTest.Controllers.Tests
         }
 
         [Test]
-        public void ShouldReturn
-    
+        public void ShouldReturnTimeWithinTheRange(){
+            DateTime dt = DateTime.Today;
+
+            //Disponer
+            var sut = new ValuesController();
+
+            //Actuar
+            string result = "12:12:12"; //sut metodo debe retonar el tiempo en string
+            string[] separationResult = result.Split(':');
+            string reultHour = separationResult[0];
+            string reultMin = separationResult[1];
+            string reultSec = separationResult[2];
+            
+            //nota duda de como debe ser el metodo
+        }
+
+        /*A.3*/
+
+        [Test]
+        public void ShouldReturnNameNotNull() {
+            var sut = new ValuesController();
+
+            String result = "luis";  //sut.metodo el metodo debe retornar la captura debe retornar un nombre(string) 
+            String expected = null;
+
+            Assert.AreNotEqual(expected,result);
+        }
+
+        [Test]
+        public void ShouldAddNewNamePerson() { 
+           
+            //Disponer
+            var sut = new ValuesController();
+            
+            //Actuar 
+            string[] result = new string[] {"luis"};// Se espera que envie un nombre y que regres un array con el nombre dentro 
+            string expected = "luis";
+
+            //Declarar
+            Assert.AreEqual(expected,result[0]);
+        }
+
+        
     }
 }
