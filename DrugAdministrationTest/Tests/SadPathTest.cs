@@ -110,7 +110,7 @@ namespace DrugAdministrationTest
 
             var hour = DateTime.Today.Hour; //sut.method();
 
-            Assert.That(hour, Is.EqualTo(0).Within(23).Hours);
+            Assert.That(hour, Is.InRange(0, 23));
         }
 
         //a.2.6.2
@@ -121,7 +121,7 @@ namespace DrugAdministrationTest
 
             var minute = DateTime.Today.Hour; //sut.method();
 
-            Assert.That(minute, Is.EqualTo(0).Within(59).Minutes);
+            Assert.That(minute, Is.InRange(0,59));
         }
 
         //a.2.6.3
@@ -132,7 +132,7 @@ namespace DrugAdministrationTest
 
             var second = DateTime.Today.Hour; //sut.method();
 
-            Assert.That(second, Is.EqualTo(0).Within(59).Seconds);
+            Assert.That(second, Is.InRange(0, 59));
         }
 
     }
