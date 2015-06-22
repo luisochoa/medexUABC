@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Collections.Generic;
+using System.Globalization;
 
 
 namespace DrugAdministrationTest.Tests
@@ -12,6 +13,7 @@ namespace DrugAdministrationTest.Tests
 
         DateTime dt = DateTime.Now;
         private DateTime dateTime;
+        
 
         public RecetaPaciente(string namePatient){
             this.namePatient = namePatient;
@@ -25,13 +27,24 @@ namespace DrugAdministrationTest.Tests
         public RecetaPaciente(string nameDoctor, DateTime dateTime)
         {
             // TODO: Complete member initialization
+            DateTimeFormatInfo dtfi = CultureInfo.CreateSpecificCulture("en-US").DateTimeFormat;
+            dtfi.DateSeparator = "/";
+            dtfi.ShortDatePattern = @"yyyy/MM/dd";
+
             this.nameDoctor = nameDoctor;
             this.dateTime = dateTime;
+            
+            date = dateTime.ToString("d", dtfi);
+            time = dateTime.ToString("HH:mm:ss");
         }
 
         public string nameDoctor { get; set; }
         
         public string namePatient { get; set; }
+
+        public string date { get; set; }
+
+        public string time { get; set; }
         
         public List < Medicine > GetTestMedicine()
         {
@@ -45,7 +58,5 @@ namespace DrugAdministrationTest.Tests
             return TestMedicine;
         }
 
-
-        
     }
 }

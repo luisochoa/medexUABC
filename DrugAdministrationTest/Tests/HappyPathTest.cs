@@ -249,7 +249,9 @@ namespace MedexTest.Controllers.Tests
 
         //1.5
         [Test]
-        public void ShouldGenerateNewPrescriptionWithTheDoctorName() {
+        public void ShouldNewObjectWithTheDoctorNameOfRecipeCreation()
+        {
+            DateTime date = new DateTime(2008, 5, 1, 8, 30, 52);
             RecetaPaciente rp = new RecetaPaciente("Dr.Jose",DateTime.Now);
 
             var sut = new ValuesController();
@@ -259,30 +261,44 @@ namespace MedexTest.Controllers.Tests
 
             Assert.AreEqual(expected,result);
         }
+
+        //1.6 
         [Test]
-        public void ShouldAddNewObjectWithTheDoctorNameOfRecipeCreation() {
-            string namePatient = "luis";
-            RecetaPaciente rp = new RecetaPaciente(namePatient);
+        public void ShouldNewObjectWithDateOfRecipeCreation(){
+            DateTime date = new DateTime(2008, 5, 1, 8, 30, 52);
+            RecetaPaciente rp = new RecetaPaciente("Dr.Jose", date);
 
             var sut = new ValuesController();
+            var result = rp.date;
+            //sut.metodo();
+            var expected = "2008/05/01";
 
-            //para obtener el nombre del doctor es necesario haberlo capturado antes.
-            string expected = "Dr. Jose";
-
-            Assert.AreEqual(expected, rp.getNameDoctor());
-        }
-
-        [Test]
-        public void ShouldAddNewObjectWithDateOfRecipeCreation(){
-
+            Assert.AreEqual(expected, result);
         } 
 
+        //1.7
         [Test]
-        public void ShouldAddNewObjectWithTimeOfRecipeCreation(){
+        public void ShouldNewObjectWithTimeOfRecipeCreation(){
+            DateTime date = new DateTime(2008, 5, 1, 8, 30, 52);
+            RecetaPaciente rp = new RecetaPaciente("Dr.Jose", date);
 
+            var sut = new ValuesController();
+            var result = rp.time;
+            //sut.metodo();
+            var expected = "08:30:52";
+
+            Assert.AreEqual(expected, result);
+        }
+
+        //1.8 
+        [Test]
+        public void Should() { 
+            
         }
     }
 }
+
+
 
 
 
