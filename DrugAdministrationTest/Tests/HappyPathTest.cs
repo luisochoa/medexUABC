@@ -292,8 +292,20 @@ namespace MedexTest.Controllers.Tests
 
         //1.8 
         [Test]
+        public void ShouldReturnsMessageAdverseReaction() {
+            var sut = new ValuesController();
+
+            var result = "reaccion adversa";//sut.metod(); recibe el nombre del medicamento 
+                //y se retorna un mensaje de reaccion adversa 
+            var expected = "reaccion adversa";
+
+            Assert.AreEqual(expected, result);
+        }
+
+        //2.1
+        [Test]
         public void Should() { 
-            
+        
         }
     }
 }

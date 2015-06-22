@@ -63,6 +63,7 @@
     <Compile Include="Tests\Medicine.cs" />
     <Compile Include="Tests\RecetaPaciente.cs" />
     <Compile Include="Tests\SadPathTest.cs" />
+    <Compile Include="Tests\Supplements.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\MedexTest\MedexTest.csproj">
