@@ -193,7 +193,8 @@ namespace MedexTest.Controllers.Tests
         //1.1
         [Test]
         public void ShouldReturnListName(){
-            var testListMedicine = GetTestMedicine();
+            RecetaPaciente rp = new RecetaPaciente();
+            var testListMedicine = rp.GetTestMedicine();
             
             var sut = new ValuesController();
 
@@ -205,11 +206,12 @@ namespace MedexTest.Controllers.Tests
 
         [Test]
         public void ShouldReturndetailsMedicine() {
+            RecetaPaciente rp = new RecetaPaciente();
             var sut = new ValuesController();
 
-            var result = GetTestMedicine;
+            var result = rp.GetTestMedicine();
                 //sut.metodo("Aspirine bayer",GetTestMedicine())  recibe por parametros una lista y se espera que retorne un solo elemento
-            
+           
             
             
             
@@ -235,26 +237,6 @@ namespace MedexTest.Controllers.Tests
         [Test]
         public void ShouldAddNewObjectWithTimeOfRecipeCreation(){
 
-        }
-
-
-        private List<Medicine> GetTestMedicine()
-        {
-            var TestMedicine = new List<Medicine>();
-            TestMedicine.Add(new Medicine { Id = 1, Name = "Aspirina bayer", Price = 1 });
-            TestMedicine.Add(new Medicine { Id = 2, Name = "Aspirina Forte", Price = 1 });
-            TestMedicine.Add(new Medicine { Id = 3, Name = "Sedalmerck", Price = 1 });
-            TestMedicine.Add(new Medicine { Id = 4, Name = "Aspirina bayer", Price = 1 });
-            TestMedicine.Add(new Medicine { Id = 5, Name = "Sedalmerck plus", Price = 1 });
-
-            return TestMedicine;
-        }
-
-        public class Medicine
-        {
-            public int Id { get; set; }
-            public string Name { get; set; }
-            public decimal Price { get; set; }
         }
     }
 }
