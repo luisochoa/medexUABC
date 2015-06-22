@@ -249,7 +249,7 @@ namespace MedexTest.Controllers.Tests
 
         //1.5
         [Test]
-        public void ShouldAddNewObjectWithTheDoctorNameOfRecipeCreation()
+        public void ShouldNewObjectWithTheDoctorNameOfRecipeCreation()
         {
             DateTime date = new DateTime(2008, 5, 1, 8, 30, 52);
             RecetaPaciente rp = new RecetaPaciente("Dr.Jose",DateTime.Now);
@@ -264,7 +264,7 @@ namespace MedexTest.Controllers.Tests
 
         //1.6 
         [Test]
-        public void ShouldAddNewObjectWithDateOfRecipeCreation(){
+        public void ShouldNewObjectWithDateOfRecipeCreation(){
             DateTime date = new DateTime(2008, 5, 1, 8, 30, 52);
             RecetaPaciente rp = new RecetaPaciente("Dr.Jose", date);
 
@@ -276,8 +276,9 @@ namespace MedexTest.Controllers.Tests
             Assert.AreEqual(expected, result);
         } 
 
+        //1.7
         [Test]
-        public void ShouldAddNewObjectWithTimeOfRecipeCreation(){
+        public void ShouldNewObjectWithTimeOfRecipeCreation(){
             DateTime date = new DateTime(2008, 5, 1, 8, 30, 52);
             RecetaPaciente rp = new RecetaPaciente("Dr.Jose", date);
 
@@ -288,8 +289,16 @@ namespace MedexTest.Controllers.Tests
 
             Assert.AreEqual(expected, result);
         }
+
+        //1.8 
+        [Test]
+        public void Should() { 
+            
+        }
     }
 }
+
+
 
 
 
