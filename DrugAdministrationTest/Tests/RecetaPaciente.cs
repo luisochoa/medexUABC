@@ -9,8 +9,9 @@ namespace DrugAdministrationTest.Tests
 {
     public class RecetaPaciente
     {
-        string doctorName = "Dr. Jose";
+
         DateTime dt = DateTime.Now;
+        private DateTime dateTime;
 
         public RecetaPaciente(string namePatient){
             this.namePatient = namePatient;
@@ -20,10 +21,15 @@ namespace DrugAdministrationTest.Tests
         {
             // TODO: Complete member initialization
         }
-        
-        public string getNameDoctor() {
-            return doctorName;
+
+        public RecetaPaciente(string nameDoctor, DateTime dateTime)
+        {
+            // TODO: Complete member initialization
+            this.nameDoctor = nameDoctor;
+            this.dateTime = dateTime;
         }
+
+        public string nameDoctor { get; set; }
         
         public string namePatient { get; set; }
         
@@ -38,6 +44,8 @@ namespace DrugAdministrationTest.Tests
 
             return TestMedicine;
         }
-    
+
+
+        
     }
 }

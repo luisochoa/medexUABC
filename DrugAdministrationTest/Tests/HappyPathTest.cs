@@ -203,7 +203,7 @@ namespace MedexTest.Controllers.Tests
             CollectionAssert.AreEqual(testListMedicine, result);
         }
 
-
+        //1.2
         [Test]
         public void ShouldReturndetailsMedicine() {
             RecetaPaciente rp = new RecetaPaciente();
@@ -211,10 +211,53 @@ namespace MedexTest.Controllers.Tests
 
             var result = rp.GetTestMedicine();
                 //sut.metodo("Aspirine bayer",GetTestMedicine())  recibe por parametros una lista y se espera que retorne un solo elemento
-           
+            var expected = rp.GetTestMedicine();
+
+            Assert.AreEqual(expected[0],result);   // hacer cambios
             
-            
-            
+        }
+
+        //1.3
+        [Test]
+        public void ShouldRemoveAMedicineFromTheRecipe() {
+            RecetaPaciente rp = new RecetaPaciente();
+
+            var sut = new ValuesController();
+                //sut.metodo() recibe por parametros el nombre y retorna la lista con elemento borrado
+            var result = rp.GetTestMedicine();  // modificar metodo 
+            var expected = rp.GetTestMedicine();
+            expected.RemoveAt(0);
+
+            CollectionAssert.AreEqual(expected, result);
+        }
+
+        //1.4
+        [Test]
+        public void ShouldAddANewMedicineAtTheRecipe() {
+            RecetaPaciente rp = new RecetaPaciente();
+
+            var sut = new ValuesController();
+
+                //sut.metodo() recibe por parametros { Id = 6, Name = "Aspirina Plus++", Price = 1 } 
+                //y retorna la lista con el nuevo elemento agregado
+            var result = rp.GetTestMedicine();  // modificar metodo 
+            var expected = rp.GetTestMedicine();
+            expected.Add(new Medicine { Id = 6, Name = "Aspirina Plus++", Price = 1 });
+
+            CollectionAssert.AreEqual(expected, result);
+        }
+
+        //1.5
+        [Test]
+        public void ShouldGenerateNewPrescriptionWithTheDoctorName() {
+            RecetaPaciente rp = new RecetaPaciente("Dr.Jose",DateTime.Now);
+
+            var sut = new ValuesController();
+            var result = rp.nameDoctor;
+            //sut.metodo();
+            var expected = "Dr.Jose";
+
+            Assert.AreEqual(expected,result);
         }
         [Test]
         public void ShouldAddNewObjectWithTheDoctorNameOfRecipeCreation() {
