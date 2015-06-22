@@ -178,26 +178,42 @@ namespace MedexTest.Controllers.Tests
 
         //1.0
         [Test]
-        public void ShouldAddNewObjectWithNamePatient() {
+        public void ShouldReturnNewObjectWithNamePatient() {
 
             RecetaPaciente rp; // objeto creado para sustituir el objeto
 
             var sut = new ValuesController();
 
-            string expected = "luis";
+            string expected = "luis";    
             rp = new RecetaPaciente(expected); // sut.metodo debe regresar el nombre del paciente dentro del objeto
 
             Assert.AreEqual(expected, rp.namePatient);
-
         }
         
         //1.1
         [Test]
         public void ShouldReturnListName(){
-              
+            var testListMedicine = GetTestMedicine();
+            
+            var sut = new ValuesController();
 
+            var result = testListMedicine;  //sut.metodo se espera que retorne una lista
+            
+            CollectionAssert.AreEqual(testListMedicine, result);
         }
-        
+
+
+        [Test]
+        public void ShouldReturndetailsMedicine() {
+            var sut = new ValuesController();
+
+            var result = GetTestMedicine;
+                //sut.metodo("Aspirine bayer",GetTestMedicine())  recibe por parametros una lista y se espera que retorne un solo elemento
+            
+            
+            
+            
+        }
         [Test]
         public void ShouldAddNewObjectWithTheDoctorNameOfRecipeCreation() {
             string namePatient = "luis";
@@ -222,6 +238,24 @@ namespace MedexTest.Controllers.Tests
         }
 
 
+        private List<Medicine> GetTestMedicine()
+        {
+            var TestMedicine = new List<Medicine>();
+            TestMedicine.Add(new Medicine { Id = 1, Name = "Aspirina bayer", Price = 1 });
+            TestMedicine.Add(new Medicine { Id = 2, Name = "Aspirina Forte", Price = 1 });
+            TestMedicine.Add(new Medicine { Id = 3, Name = "Sedalmerck", Price = 1 });
+            TestMedicine.Add(new Medicine { Id = 4, Name = "Aspirina bayer", Price = 1 });
+            TestMedicine.Add(new Medicine { Id = 5, Name = "Sedalmerck plus", Price = 1 });
+
+            return TestMedicine;
+        }
+
+        public class Medicine
+        {
+            public int Id { get; set; }
+            public string Name { get; set; }
+            public decimal Price { get; set; }
+        }
     }
 }
 
