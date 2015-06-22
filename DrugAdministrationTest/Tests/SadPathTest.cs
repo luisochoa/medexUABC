@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using NUnit.Framework;
 using MedexTest.Controllers;
+using DrugAdministrationTest.Tests;
 
 namespace DrugAdministrationTest
 {
@@ -209,7 +210,7 @@ namespace DrugAdministrationTest
 
         //a.5.1
         [Test]
-        public void Should_Return_Null_Date_In_Ordered_Date_Field()
+        public void Should_Return_Null_Date_In_Report_Order_Date_Field()
         {
             var sut = new ValuesController();
             var date = DateTime.Today; //sut.method();
@@ -237,10 +238,41 @@ namespace DrugAdministrationTest
         {
             var sut = new ValuesController();
             /* */
-            string medicine = null; //sut.method(); Debería ser del tipo Medicine o equivalente, no string
+            Medicine medicine = null; //sut.method(); Debería ser del tipo Medicine o equivalente, no string
 
             Assert.That(medicine, Is.Not.Null);
         }
+
+        //d.1.1
+        [Test]
+        public void Should_Return_Drug_Without_Medicine_type()
+        {
+            var sut = new ValuesController();
+            var medicine = new Medicine(); //sut.method();
+
+            Assert.That(medicine, Is.Not.TypeOf(typeof(Medicine)));
+        }
+
+        //d.1.2
+        [Test]
+        public void Should_Display_Null_Medicines()
+        {
+            var sut = new ValuesController();
+            List<Medicine> medicines = null; //Sut.method();
+
+            Assert.That(medicines, Is.Null);
+        }
+
+        //d.1.3 
+        [Test]
+        public void Should_Return_Null_In_Captured_Complementaries()
+        {
+            var sut = new ValuesController();
+            Medicine medicine = null; //sut.method();
+
+            Assert.That(medicine, Is.Null);
+        }
+
 
 
     }
