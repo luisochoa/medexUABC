@@ -221,6 +221,27 @@ namespace DrugAdministrationTest
         //a.5.3
         //a.5.4
 
-        
+        //c.1.1
+        [Test]
+        public void Should_Return_Null_String_Capture()
+        {
+            var sut = new ValuesController();
+            string capture = "null";//sut.method();
+
+            Assert.That(capture, Is.Null);
+        }
+
+        //c.1.2
+        [Test]
+        public void Should_Return_Non_Null_Medicine()
+        {
+            var sut = new ValuesController();
+            /* */
+            string medicine = null; //sut.method(); Debería ser del tipo Medicine o equivalente, no string
+
+            Assert.That(medicine, Is.Not.Null);
+        }
+
+
     }
 }
