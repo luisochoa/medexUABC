@@ -208,20 +208,6 @@ namespace DrugAdministrationTest
             Assert.That(name, Is.Not.TypeOf(typeof(string)));
         }
 
-        //a.5.1
-        [Test]
-        public void Should_Return_Null_Date_In_Report_Order_Date_Field()
-        {
-            var sut = new ValuesController();
-            var date = DateTime.Today; //sut.method();
-
-            Assert.That(date, Is.Null);
-        }
-
-        //a.5.2
-        //a.5.3
-        //a.5.4
-
         //c.1.1
         [Test]
         public void Should_Return_Null_String_Capture()
