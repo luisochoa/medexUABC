@@ -180,12 +180,12 @@ namespace MedexTest.Controllers.Tests
         [Test]
         public void ShouldReturnNewObjectWithNamePatient() {
 
-            RecetaPaciente rp; // objeto creado para sustituir el objeto
+            PatientPrescription rp; // objeto creado para sustituir el objeto
 
             var sut = new ValuesController();
 
             string expected = "luis";    
-            rp = new RecetaPaciente(expected); // sut.metodo debe regresar el nombre del paciente dentro del objeto
+            rp = new PatientPrescription(expected); // sut.metodo debe regresar el nombre del paciente dentro del objeto
 
             Assert.AreEqual(expected, rp.namePatient);
         }
@@ -193,7 +193,7 @@ namespace MedexTest.Controllers.Tests
         //1.1
         [Test]
         public void ShouldReturnListName(){
-            RecetaPaciente rp = new RecetaPaciente();
+            PatientPrescription rp = new PatientPrescription();
             var testListMedicine = rp.GetTestMedicine();
             
             var sut = new ValuesController();
@@ -206,7 +206,7 @@ namespace MedexTest.Controllers.Tests
         //1.2
         [Test]
         public void ShouldReturndetailsMedicine() {
-            RecetaPaciente rp = new RecetaPaciente();
+            PatientPrescription rp = new PatientPrescription();
             var sut = new ValuesController();
 
             var result = rp.GetTestMedicine();
@@ -220,7 +220,7 @@ namespace MedexTest.Controllers.Tests
         //1.3
         [Test]
         public void ShouldRemoveAMedicineFromTheRecipe() {
-            RecetaPaciente rp = new RecetaPaciente();
+            PatientPrescription rp = new PatientPrescription();
 
             var sut = new ValuesController();
                 //sut.metodo() recibe por parametros el nombre y retorna la lista con elemento borrado
@@ -234,7 +234,7 @@ namespace MedexTest.Controllers.Tests
         //1.4
         [Test]
         public void ShouldAddANewMedicineAtTheRecipe() {
-            RecetaPaciente rp = new RecetaPaciente();
+            PatientPrescription rp = new PatientPrescription();
 
             var sut = new ValuesController();
 
@@ -252,7 +252,7 @@ namespace MedexTest.Controllers.Tests
         public void ShouldNewObjectWithTheDoctorNameOfRecipeCreation()
         {
             DateTime date = new DateTime(2008, 5, 1, 8, 30, 52);
-            RecetaPaciente rp = new RecetaPaciente("Dr.Jose",DateTime.Now);
+            PatientPrescription rp = new PatientPrescription("Dr.Jose",DateTime.Now);
 
             var sut = new ValuesController();
             var result = rp.nameDoctor;
@@ -267,7 +267,7 @@ namespace MedexTest.Controllers.Tests
         [Test]
         public void ShouldNewObjectWithDateOfRecipeCreation(){
             DateTime date = new DateTime(2008, 5, 1, 8, 30, 52);
-            RecetaPaciente rp = new RecetaPaciente("Dr.Jose", date);
+            PatientPrescription rp = new PatientPrescription("Dr.Jose", date);
 
             var sut = new ValuesController();
             var result = rp.date;
@@ -281,7 +281,7 @@ namespace MedexTest.Controllers.Tests
         [Test]
         public void ShouldNewObjectWithTimeOfRecipeCreation(){
             DateTime date = new DateTime(2008, 5, 1, 8, 30, 52);
-            RecetaPaciente rp = new RecetaPaciente("Dr.Jose", date);
+            PatientPrescription rp = new PatientPrescription("Dr.Jose", date);
 
             var sut = new ValuesController();
             var result = rp.time;
@@ -307,7 +307,7 @@ namespace MedexTest.Controllers.Tests
         [Test]
         public void ShouldAddANewSupplementToList(){
             var sut = new ValuesController();
-            RecetaPaciente rp = new RecetaPaciente();
+            PatientPrescription rp = new PatientPrescription();
 
             var result = rp.GetTestSupplements(); //sut.metodo(Id = 3, Name = "Suplemento C" ,List)
             //agrega un nuevo suplemento, se le envia el nombre y ID del suplemento
@@ -321,7 +321,7 @@ namespace MedexTest.Controllers.Tests
         [Test]
         public void ShouldRemoveAnItemFromTheList() {
             var sut = new ValuesController();
-            RecetaPaciente rp = new RecetaPaciente();
+            PatientPrescription rp = new PatientPrescription();
 
 
             var result = rp.GetTestSupplements(); //sut.metodo eliminar un elemento de la lista recibe por 
@@ -386,7 +386,136 @@ namespace MedexTest.Controllers.Tests
 
             var sut = new ValuesController();
 
-            var result = "";//sut.metodo debe retornar
+            var result = GetAllPatientPrescription();  //sut.metodo debe retornar una lista con todas las recetas del paciente
+            var expected = GetAllPatientPrescriptionPatient();
+
+            CollectionAssert.AreEqual(expected, result);
+        }
+
+        //5.2
+        [Test]
+        public void ShouldReturnsAllPrescriptionsTheDoctorOrdered()
+        {
+
+            var sut = new ValuesController();
+
+            var result = GetAllPatientPrescription();  //sut.metodo debe retornar una lista con todas las recetas del paciente
+            var expected = GetAllPatientPrescriptionDoctor();
+
+            CollectionAssert.AreEqual(expected, result);
+        }
+        //5.3.1
+        [Test]
+        public void ShouldReturnsAllPrescriptionsFilteredByYear()
+        {
+
+            var sut = new ValuesController();
+
+            var result = GetAllPatientPrescription();  //sut.metodo debe retornar una lista con todas las recetas del paciente
+            var expected = GetAllPatientPrescriptionDateYear();
+
+            CollectionAssert.AreEqual(expected, result);
+        }
+        
+        //5.3.2
+        [Test]
+        public void ShouldReturnsAllPrescriptionsFilteredByMoth()
+        {
+
+            var sut = new ValuesController();
+
+            var result = GetAllPatientPrescription();  //sut.metodo debe retornar una lista con todas las recetas del paciente
+            var expected = GetAllPatientPrescriptionDateMoth();
+
+            CollectionAssert.AreEqual(expected, result);
+        }
+
+        public List<PatientPrescription> GetAllPatientPrescription()
+        {
+            var testPatientPrescription = new List<PatientPrescription>();
+            DateTime date;
+
+            date = new DateTime(2015, 5, 1, 8, 30, 52);
+            testPatientPrescription.Add(new PatientPrescription("Luis", "Dr.House", date));
+            date = new DateTime(2015, 5, 1, 9, 30, 52);
+            testPatientPrescription.Add(new PatientPrescription("Jorge", "Dr.Simi", date));
+            date = new DateTime(2015, 5, 1, 10, 30, 52);
+            testPatientPrescription.Add(new PatientPrescription("Jorge", "Dr.House", date));
+            date = new DateTime(2016, 5, 1, 8, 30, 00);
+            testPatientPrescription.Add(new PatientPrescription("Jorge", "Dr.Simi", date));
+            date = new DateTime(2016, 5, 1, 9, 30, 00);
+            testPatientPrescription.Add(new PatientPrescription("Luis", "Dr.House", date));
+            date = new DateTime(2016, 5, 1, 10, 30, 00);
+            testPatientPrescription.Add(new PatientPrescription("Luis", "Dr.House", date));
+
+            return testPatientPrescription;
+        }
+
+        public List<PatientPrescription> GetAllPatientPrescriptionPatient()
+        {
+            var testPatientPrescription = new List<PatientPrescription>();
+            DateTime date;
+
+            date = new DateTime(2015, 5, 1, 9, 30, 52);
+            testPatientPrescription.Add(new PatientPrescription("Jorge", "Dr.Simi", date));
+            date = new DateTime(2015, 5, 1, 10, 30, 52);
+            testPatientPrescription.Add(new PatientPrescription("Jorge", "Dr.House", date));
+            date = new DateTime(2016, 5, 1, 8, 30, 00);
+            testPatientPrescription.Add(new PatientPrescription("Jorge", "Dr.Simi", date));
+
+
+            return testPatientPrescription;
+        }
+
+        public List<PatientPrescription> GetAllPatientPrescriptionDoctor()
+        {
+            var testPatientPrescription = new List<PatientPrescription>();
+            DateTime date;
+
+            date = new DateTime(2015, 5, 1, 8, 30, 52);
+            testPatientPrescription.Add(new PatientPrescription("Luis", "Dr.House", date));
+            date = new DateTime(2016, 5, 1, 9, 30, 00);
+            testPatientPrescription.Add(new PatientPrescription("Luis", "Dr.House", date));
+            date = new DateTime(2016, 5, 1, 10, 30, 00);
+            testPatientPrescription.Add(new PatientPrescription("Luis", "Dr.House", date));
+
+            return testPatientPrescription;
+        }
+
+        public List<PatientPrescription> GetAllPatientPrescriptionDateYear()
+        {
+            var testPatientPrescription = new List<PatientPrescription>();
+            DateTime date;
+
+            date = new DateTime(2015, 5, 1, 8, 30, 52);
+            testPatientPrescription.Add(new PatientPrescription("Luis", "Dr.House", date));
+            date = new DateTime(2015, 5, 1, 9, 30, 52);
+            testPatientPrescription.Add(new PatientPrescription("Jorge", "Dr.Simi", date));
+            date = new DateTime(2015, 5, 1, 10, 30, 52);
+            testPatientPrescription.Add(new PatientPrescription("Jorge", "Dr.House", date));
+
+            return testPatientPrescription;
+        }
+
+        public List<PatientPrescription> GetAllPatientPrescriptionDateMoth()
+        {
+            var testPatientPrescription = new List<PatientPrescription>();
+            DateTime date;
+
+            date = new DateTime(2015, 5, 1, 8, 30, 52);
+            testPatientPrescription.Add(new PatientPrescription("Luis", "Dr.House", date));
+            date = new DateTime(2015, 5, 1, 9, 30, 52);
+            testPatientPrescription.Add(new PatientPrescription("Jorge", "Dr.Simi", date));
+            date = new DateTime(2015, 5, 1, 10, 30, 52);
+            testPatientPrescription.Add(new PatientPrescription("Jorge", "Dr.House", date));
+            date = new DateTime(2016, 5, 1, 8, 30, 00);
+            testPatientPrescription.Add(new PatientPrescription("Jorge", "Dr.Simi", date));
+            date = new DateTime(2016, 5, 1, 9, 30, 00);
+            testPatientPrescription.Add(new PatientPrescription("Luis", "Dr.House", date));
+            date = new DateTime(2016, 5, 1, 10, 30, 00);
+            testPatientPrescription.Add(new PatientPrescription("Luis", "Dr.House", date));
+
+            return testPatientPrescription;
         }
     }
 }

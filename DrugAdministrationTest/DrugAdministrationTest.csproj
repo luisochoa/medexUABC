@@ -63,7 +63,7 @@
     <Compile Include="Tests\Medicine.cs" />
     <Compile Include="Tests\NonexistentMedicines.cs" />
     <Compile Include="Tests\Patient.cs" />
-    <Compile Include="Tests\RecetaPaciente.cs" />
+    <Compile Include="Tests\PatientPrescription.cs" />
     <Compile Include="Tests\SadPathTest.cs" />
     <Compile Include="Tests\Supplements.cs" />
   </ItemGroup>

@@ -8,23 +8,26 @@ using System.Globalization;
 
 namespace DrugAdministrationTest.Tests
 {
-    public class RecetaPaciente
+    public class PatientPrescription
     {
 
         DateTime dt = DateTime.Now;
         private DateTime dateTime;
+        private string p1;
+        private string p2;
+        private DateTime date1;
         
 
-        public RecetaPaciente(string namePatient){
+        public PatientPrescription(string namePatient){
             this.namePatient = namePatient;
         }
 
-        public RecetaPaciente()
+        public PatientPrescription()
         {
             // TODO: Complete member initialization
         }
 
-        public RecetaPaciente(string nameDoctor, DateTime dateTime)
+        public PatientPrescription(string nameDoctor, DateTime dateTime)
         {
             // TODO: Complete member initialization
             DateTimeFormatInfo dtfi = CultureInfo.CreateSpecificCulture("en-US").DateTimeFormat;
@@ -36,6 +39,22 @@ namespace DrugAdministrationTest.Tests
             
             date = dateTime.ToString("d", dtfi);
             time = dateTime.ToString("HH:mm:ss");
+        }
+
+        public PatientPrescription(string namePatient, string p2, DateTime date)
+        {
+            // TODO: Complete member initialization
+            DateTimeFormatInfo dtfi = CultureInfo.CreateSpecificCulture("en-US").DateTimeFormat;
+            dtfi.DateSeparator = "/";
+            dtfi.ShortDatePattern = @"yyyy/MM/dd";
+
+            this.namePatient = namePatient;
+            this.nameDoctor = nameDoctor;
+            dateTime = date;
+            this.date = date.ToString("d", dtfi);
+            time = dateTime.ToString("HH:mm:ss");
+
+            //this.date = date;
         }
 
         public string nameDoctor { get; set; }
