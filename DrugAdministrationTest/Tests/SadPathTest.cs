@@ -273,7 +273,96 @@ namespace DrugAdministrationTest
             Assert.That(medicine, Is.Null);
         }
 
+        //e.1.1
+        [Test]
+        public void Should_Return_Null_Medicines_While_Printing()
+        {
+            var sut = new ValuesController();
+            List<Medicine> medicines = null; //sut.method(); devuelve la lista de medicamentos
 
+            Assert.That(medicines, Is.Null);
+        }
 
+        //e.1.2
+        [Test]
+        public void Should_Return_Empty_Medicine_List_While_Printing()
+        {
+            var sut = new ValuesController();
+            List<Medicine> medicines = null; //sut.method();
+
+            Assert.That(medicines, Is.All.Null);
+        }
+
+        //e.1.3
+        [Test]
+        public void Should_Return_Some_Null_Medicine_In_List_While_Printing() 
+        {
+            var sut = new ValuesController();
+            List<Medicine> medicines = null; //sut.method();
+
+            Assert.That(medicines, Has.Some.Null);
+        }
+
+        //f.1.1
+        [Test]
+        public void Should_Return_Null_Medicines_While_Consulting()
+        {
+            var sut = new ValuesController();
+            List<Medicine> medicines = null; //sut.method(); devuelve la lista de medicamentos
+
+            Assert.That(medicines, Is.Null);
+        }
+
+        //f.1.2
+        [Test]
+        public void Should_Return_Empty_Medicine_List_While_Consulting()
+        {
+            var sut = new ValuesController();
+            List<Medicine> medicines = null; //sut.method();
+
+            Assert.That(medicines, Is.All.Null);
+        }
+
+        //f.1.3
+        [Test]
+        public void Should_Return_Some_Null_Medicine_In_List_While_Consulting()
+        {
+            var sut = new ValuesController();
+            List<Medicine> medicines = null; //sut.method();
+            
+            Assert.That(medicines, Has.Some.Null);
+        }
+
+        //f.1.4
+        //[Test]
+        //public void 
+
+        //g.1.1
+        [Test]
+        public void Should_Return_Null_Medicine_In_Adverse_Reactions()
+        {
+            var sut = new ValuesController();
+            Medicine medicine = null; //sut.method();
+
+            Assert.That(medicine, Is.Null);
+        }
+
+        //g.1.2
+        [Test]
+        public void Should()
+        {
+            var sut = new ValuesController();
+
+        }
+
+        //g.1.3
+        [Test]
+        public void Should_Return_Null_Notification()
+        {
+            var sut = new ValuesController();
+            string notification = null; //sut.method();
+
+            Assert.That(notification, Is.Null);
+        }
     }
 }
