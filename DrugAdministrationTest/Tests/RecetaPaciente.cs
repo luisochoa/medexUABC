@@ -58,7 +58,7 @@ namespace DrugAdministrationTest.Tests
             return TestMedicine;
         }
 
-        public List<Supplements> GetTestSupplements()
+        public List< Supplements > GetTestSupplements()
         {
             var testSupplements = new List<Supplements>();
 

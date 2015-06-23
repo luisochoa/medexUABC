@@ -238,7 +238,7 @@ namespace MedexTest.Controllers.Tests
 
             var sut = new ValuesController();
 
-                //sut.metodo() recibe por parametros { Id = 6, Name = "Aspirina Plus++", Price = 1 } 
+                //sut.metodo() recibe por parametros { Id = 6, Name = "Aspirina Plus++", Price = 1 }  y la lista
                 //y retorna la lista con el nuevo elemento agregado
             var result = rp.GetTestMedicine();  // modificar metodo 
             var expected = rp.GetTestMedicine();
@@ -256,7 +256,8 @@ namespace MedexTest.Controllers.Tests
 
             var sut = new ValuesController();
             var result = rp.nameDoctor;
-            //sut.metodo();
+            //sut.metodo(); recibe por parametros el nombre del doctor se espera que retorne el nombre 
+            // dentro del objeto
             var expected = "Dr.Jose";
 
             Assert.AreEqual(expected,result);
@@ -270,7 +271,7 @@ namespace MedexTest.Controllers.Tests
 
             var sut = new ValuesController();
             var result = rp.date;
-            //sut.metodo();
+            //sut.metodo(); recibe por parametros un datetime y retorna la fecha
             var expected = "2008/05/01";
 
             Assert.AreEqual(expected, result);
@@ -284,7 +285,7 @@ namespace MedexTest.Controllers.Tests
 
             var sut = new ValuesController();
             var result = rp.time;
-            //sut.metodo();
+            //sut.metodo(); recibe un dateTime y retorna la fecha
             var expected = "08:30:52";
 
             Assert.AreEqual(expected, result);
@@ -295,17 +296,97 @@ namespace MedexTest.Controllers.Tests
         public void ShouldReturnsMessageAdverseReaction() {
             var sut = new ValuesController();
 
-            var result = "reaccion adversa";//sut.metod(); recibe el nombre del medicamento 
+            var result = "reaccion adversa";//sut.metod(name); recibe el nombre del medicamento y la lista
                 //y se retorna un mensaje de reaccion adversa 
             var expected = "reaccion adversa";
 
             Assert.AreEqual(expected, result);
         }
 
+        //2.0
+        [Test]
+        public void ShouldAddANewSupplementToList(){
+            var sut = new ValuesController();
+            RecetaPaciente rp = new RecetaPaciente();
+
+            var result = rp.GetTestSupplements(); //sut.metodo(Id = 3, Name = "Suplemento C" ,List)
+            //agrega un nuevo suplemento, se le envia el nombre y ID del suplemento
+            var expected = rp.GetTestSupplements();
+            expected.Add(new Supplements { Id = 3, Name = "Suplemento C" });
+            
+            CollectionAssert.AreEqual(expected,result);
+        }
+
         //2.1
         [Test]
-        public void Should() { 
-        
+        public void ShouldRemoveAnItemFromTheList() {
+            var sut = new ValuesController();
+            RecetaPaciente rp = new RecetaPaciente();
+
+
+            var result = rp.GetTestSupplements(); //sut.metodo eliminar un elemento de la lista recibe por 
+            //parametros la lista y el nombre del suplemento
+            var expected = rp.GetTestSupplements();
+            expected.RemoveAt(2);
+
+            CollectionAssert.AreEqual(expected,result);
+        }
+
+        //3.1
+        [Test]
+        public void ShouldAddNewNoneExistentMedicineToList() {
+
+            var sut = new ValuesController();
+
+            var result = GetTestNonexistentMedicines();
+            //sut.metodo(name,List) "Aspirina plus" recibe por parametros el nombre del medicamento inexistente y la lista
+            var expected = GetTestNonexistentMedicines();
+            expected.Add(new NonexistentMedicines { Name = "Aspirina plus" });
+
+            CollectionAssert.AreEqual(expected, result);
+        }
+
+        public List<NonexistentMedicines> GetTestNonexistentMedicines()
+        {
+            var testNonexistentMedicines = new List<NonexistentMedicines>();
+
+            testNonexistentMedicines.Add(new NonexistentMedicines { Name = "Aspirina bayer" });
+            testNonexistentMedicines.Add(new NonexistentMedicines { Name = "Proteinas" });
+
+            return testNonexistentMedicines;
+        }
+    
+        //4.1
+        [Test]
+        public void ShouldReturnsThePatientsMedicalRecord()
+        {
+            var sut = new ValuesController();
+
+            var result = GetAllPatients();
+            //sut.metodo("Luis") recibe por parametros el nombre del paciente y la lista de pacientes
+            // retorna el elemento que pertenezca al nombre
+            var expected = GetAllPatients();
+
+            Assert.AreEqual(expected[0], result);
+        }
+
+        public List<Patient> GetAllPatients()
+        {
+            var testPatients = new List<Patient>();
+
+            testPatients.Add(new Patient { Name = "Luis" });
+            testPatients.Add(new Patient { Name = "Jorge" });
+
+            return testPatients;
+        }       
+    
+        //5.1
+        [Test]
+        public void ShouldReturnsAllPatientPrescriptions() {
+
+            var sut = new ValuesController();
+
+            var result = "";//sut.metodo debe retornar
         }
     }
 }
