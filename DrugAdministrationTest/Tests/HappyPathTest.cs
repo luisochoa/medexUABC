@@ -16,23 +16,23 @@ namespace MedexTest.Controllers.Tests
         /// Hola zules
 
 
-        /** a1 **/
-        [Test]
-        public void ShouldReturnDateNonNull()
-        {
-            //Disponer
-            var sut = new ValuesController();
+        ///** a1 **/
+        //[Test]
+        //public void ShouldReturnDateNonNull()
+        //{
+        //    //Disponer
+        //    var sut = new ValuesController();
 
-            // Actuar
-            string result = "2015/06/17"; //del metodo de obtener fecha se espera que roterne un valor diferente de nulo
-            string[] resultSeparation = result.Split('/');
-            string notExpected = null;
+        //    // Actuar
+        //    string result = "2015/06/17"; //del metodo de obtener fecha se espera que roterne un valor diferente de nulo
+        //    string[] resultSeparation = result.Split('/');
+        //    string notExpected = null;
     
-            //declarar
-            Assert.AreNotEqual(notExpected, resultSeparation[0]);
-            Assert.AreNotEqual(notExpected, resultSeparation[1]);
-            Assert.AreNotEqual(notExpected, resultSeparation[2]);
-        }
+        //    //declarar
+        //    Assert.AreNotEqual(notExpected, resultSeparation[0]);
+        //    Assert.AreNotEqual(notExpected, resultSeparation[1]);
+        //    Assert.AreNotEqual(notExpected, resultSeparation[2]);
+        //}
 
         [Test]
         public void ShouldReturnDateOrderYearMonthDay()
@@ -56,55 +56,55 @@ namespace MedexTest.Controllers.Tests
 
         }
 
-        [Test]
-        public void ShouldReturnDateNull()
-        {
-            //Disponer
-            var sut = new ValuesController();
+        //[Test]
+        //public void ShouldReturnDateNull()
+        //{
+        //    //Disponer
+        //    var sut = new ValuesController();
 
-            //Actuar
-            var result = DateTime.Today;  // se espera que retorne un null metodo de obtener fecha
-            DateTime? expected = null;
+        //    //Actuar
+        //    var result = DateTime.Today;  // se espera que retorne un null metodo de obtener fecha
+        //    DateTime? expected = null;
 
-            //Declarar
-            Assert.AreEqual(expected, result);
+        //    //Declarar
+        //    Assert.AreEqual(expected, result);
 
-        }
+        //}
 
         /*A.2*/
-        [Test]
-        public void ShouldReturnTimeNotNull()
-        {
-            DateTime dt = DateTime.Today;
+        //[Test]
+        //public void ShouldReturnTimeNotNull()
+        //{
+        //    DateTime dt = DateTime.Today;
 
-            //Disponer
-            var sut = new ValuesController();
+        //    //Disponer
+        //    var sut = new ValuesController();
 
-            //Actuar
-            //sut.metodo se espera que el metodo regrese un string con la hora
-            //el string se debe separar con split('/')
+        //    //Actuar
+        //    //sut.metodo se espera que el metodo regrese un string con la hora
+        //    //el string se debe separar con split('/')
 
-            string resultHour = dt.Hour.ToString();
-            string resultMin = dt.Minute.ToString();
-            string resultSec = dt.Second.ToString();
-            string notExpected = null;
+        //    string resultHour = dt.Hour.ToString();
+        //    string resultMin = dt.Minute.ToString();
+        //    string resultSec = dt.Second.ToString();
+        //    string notExpected = null;
 
-            //Declarar
-            Assert.AreNotEqual(notExpected, resultHour);
-            Assert.AreNotEqual(notExpected, resultMin);
-            Assert.AreNotEqual(notExpected, resultSec);
-        }
+        //    //Declarar
+        //    Assert.AreNotEqual(notExpected, resultHour);
+        //    Assert.AreNotEqual(notExpected, resultMin);
+        //    Assert.AreNotEqual(notExpected, resultSec);
+        //}
 
         [Test]
         public void ShouldReturnStringOrderHourMinuteSecond()
         {
-            DateTime dt = DateTime.Now;
+            DateTime dt = new DateTime(2015, 4, 1, 10, 30, 52);
 
             //Disponer
             var sut = new ValuesController();
 
             //Actuar
-            string result = "12:12:12"; //sut.metodo debe retornar un string con la hora, por parametros recibe un datetime "dt"     
+            string result = "10:30:52"; //sut.metodo debe retornar un string con la hora, por parametros recibe un datetime "dt"     
             string expected = dt.ToString("HH:mm:ss");
 
             //Declarar
@@ -126,54 +126,55 @@ namespace MedexTest.Controllers.Tests
             
         }
 
-        [Test]
-        public void ShouldReturnTimeWithinTheRange(){
-            DateTime dt = DateTime.Today;
+        //[Test]
+        //public void ShouldReturnTimeWithinTheRange(){
+        //    DateTime dt = DateTime.Today;
 
-            //Disponer
-            var sut = new ValuesController();
+        //    //Disponer
+        //    var sut = new ValuesController();
 
-            //Actuar
-            string result = "12:12:12"; //sut metodo debe retonar el tiempo en string
-            string[] separationResult = result.Split(':');
-            string reultHour = separationResult[0];
-            string reultMin = separationResult[1];
-            string reultSec = separationResult[2];
+        //    //Actuar
+        //    string result = "12:12:12"; //sut metodo debe retonar el tiempo en string
+        //    string[] separationResult = result.Split(':');
+        //    string reultHour = separationResult[0];
+        //    string reultMin = separationResult[1];
+        //    string reultSec = separationResult[2];
             
-            //nota duda de como debe ser el metodo
-        }
+        //    //nota duda de como debe ser el metodo
+        //}
 
         /*A.3*/
 
-        [Test]
-        public void ShouldReturnNameNotNull() {
-            var sut = new ValuesController();
+        //[Test]
+        //public void ShouldReturnNameNotNull() {
+        //    var sut = new ValuesController();
 
-            String result = "luis";  //sut.metodo el metodo debe retornar la captura debe retornar un nombre(string) 
-            String expected = null;
+        //    String result = "luis";  //sut.metodo el metodo debe retornar la captura debe retornar un nombre(string) 
+        //    String expected = null;
 
-            Assert.AreNotEqual(expected,result);
-        }
+        //    Assert.AreNotEqual(expected,result);
+        //}
 
-        [Test]
-        public void ShouldAddNewNamePerson() { 
+        //[Test]
+        //public void ShouldAddNewNamePerson() 
+        //{ 
            
-            //Disponer
-            var sut = new ValuesController();
+        //    //Disponer
+        //    var sut = new ValuesController();
             
-            //Actuar 
-            string[] result = new string[] {"luis"};// Se espera que envie un nombre y que regres un array con el nombre dentro 
-            string expected = "luis";
+        //    //Actuar 
+        //    string[] result = new string[] {"luis"};// Se espera que envie un nombre y que regres un array con el nombre dentro 
+        //    string expected = "luis";
 
-            //Declarar
-            Assert.AreEqual(expected,result[0]);
-        }
+        //    //Declarar
+        //    Assert.AreEqual(expected,result[0]);
+        //}
 
 
         /*
             Pruebas de vistas
          */
-        
+
         //Generar Receta 
 
         //1.0
@@ -205,7 +206,7 @@ namespace MedexTest.Controllers.Tests
 
         //1.2
         [Test]
-        public void ShouldReturndetailsMedicine() {
+        public void ShouldReturnDetailsMedicine() {
             PatientPrescription rp = new PatientPrescription();
             var sut = new ValuesController();
 
@@ -249,7 +250,7 @@ namespace MedexTest.Controllers.Tests
 
         //1.5
         [Test]
-        public void ShouldNewObjectWithTheDoctorNameOfRecipeCreation()
+        public void ShouldAddNewObjectWithTheDoctorNameOfRecipeCreation()
         {
             DateTime date = new DateTime(2008, 5, 1, 8, 30, 52);
             PatientPrescription rp = new PatientPrescription("Dr.Jose",DateTime.Now);
@@ -265,7 +266,7 @@ namespace MedexTest.Controllers.Tests
 
         //1.6 
         [Test]
-        public void ShouldNewObjectWithDateOfRecipeCreation(){
+        public void ShouldAddNewObjectWithDateOfRecipeCreation(){
             DateTime date = new DateTime(2008, 5, 1, 8, 30, 52);
             PatientPrescription rp = new PatientPrescription("Dr.Jose", date);
 
@@ -279,7 +280,7 @@ namespace MedexTest.Controllers.Tests
 
         //1.7
         [Test]
-        public void ShouldNewObjectWithTimeOfRecipeCreation(){
+        public void ShouldAddNewObjectWithTimeOfRecipeCreation(){
             DateTime date = new DateTime(2008, 5, 1, 8, 30, 52);
             PatientPrescription rp = new PatientPrescription("Dr.Jose", date);
 
@@ -292,14 +293,22 @@ namespace MedexTest.Controllers.Tests
         }
 
         //1.8 
+        /*  Para provar en el Happy path se compara entre el expediente medico y la nueva receta medica
+            
+         */
+
+
+        //checar hacer cambios
         [Test]
-        public void ShouldReturnsMessageAdverseReaction() {
+        public void ShouldReturnMessageAdverseReaction() {
             var sut = new ValuesController();
 
-            var result = "reaccion adversa";//sut.metod(name); recibe el nombre del medicamento y la lista
+            var result = "reaccion adversa";//sut.metod();  La lista de los medicamentos 
+                //adversos del paciente y el nombre del nuevo medicamento
+                // Que el paciente presento reaccion adversa 
                 //y se retorna un mensaje de reaccion adversa 
             var expected = "reaccion adversa";
-
+            
             Assert.AreEqual(expected, result);
         }
 
@@ -319,7 +328,7 @@ namespace MedexTest.Controllers.Tests
 
         //2.1
         [Test]
-        public void ShouldRemoveAnItemFromTheList() {
+        public void ShouldRemoveSupplementFromTheList() {
             var sut = new ValuesController();
             PatientPrescription rp = new PatientPrescription();
 
@@ -327,14 +336,15 @@ namespace MedexTest.Controllers.Tests
             var result = rp.GetTestSupplements(); //sut.metodo eliminar un elemento de la lista recibe por 
             //parametros la lista y el nombre del suplemento
             var expected = rp.GetTestSupplements();
-            expected.RemoveAt(2);
+            expected.RemoveAt(1);
 
             CollectionAssert.AreEqual(expected,result);
         }
 
         //3.1
         [Test]
-        public void ShouldAddNewNoneExistentMedicineToList() {
+        public void ShouldAddNewNoneExistentMedicineToList() 
+        {
 
             var sut = new ValuesController();
 
@@ -426,7 +436,7 @@ namespace MedexTest.Controllers.Tests
         
         //5.3.2
         [Test]
-        public void ShouldReturnsAllPrescriptionsFilteredByMoth()
+        public void ShouldReturnsAllPrescriptionsFilteredByMonth()
         {
 
             var sut = new ValuesController();
@@ -435,7 +445,7 @@ namespace MedexTest.Controllers.Tests
                                                         //recibe por parametros nombre del paciente, y una fecha
                                                         // luis, 2015/04/??
                                                         //debe retornar una lista con todas las recetas del paciente
-            var expected = GetAllPatientPrescriptionDateMoth();
+            var expected = GetAllPatientPrescriptionDateMonth();
 
             CollectionAssert.AreEqual(expected, result);
         }
@@ -504,7 +514,7 @@ namespace MedexTest.Controllers.Tests
             return testPatientPrescription;
         }
 
-        public List<PatientPrescription> GetAllPatientPrescriptionDateMoth()
+        public List<PatientPrescription> GetAllPatientPrescriptionDateMonth()
         {
             var testPatientPrescription = new List<PatientPrescription>();
             DateTime date;
@@ -516,8 +526,3 @@ namespace MedexTest.Controllers.Tests
         }
     }
 }
-
-
-
-
-
