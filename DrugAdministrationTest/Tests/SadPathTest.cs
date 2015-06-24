@@ -342,5 +342,33 @@ namespace DrugAdministrationTest
 
             Assert.That(notification, Is.Null);
         }
+
+        //Pruebas para el modo de empleo de un medicamento
+        [Test]
+        public void Should_Return_Null_Dose_Field()
+        {
+            var sut = new ValuesController();
+            string dose = null; //sut.method();
+
+            Assert.That(dose, Is.Null);
+        }
+
+        [Test]
+        public void Should_Return_Null_Period_field()
+        {
+            var sut = new ValuesController();
+            Int16? period = null; //sut.method();
+
+            Assert.That(period, Is.Null);
+        }
+
+        [Test]
+        public void Should_Return_Null_Administration()
+        {
+            var sut = new ValuesController();
+            string adm = null;
+
+            Assert.That(adm, Is.Null);
+        }
     }
 }
