@@ -386,7 +386,8 @@ namespace MedexTest.Controllers.Tests
 
             var sut = new ValuesController();
 
-            var result = GetAllPatientPrescription();  //sut.metodo debe retornar una lista con todas las recetas del paciente
+            var result = GetAllPatientPrescription();  //recibe por parametros "jorge" y la Lista
+            //sut.metodo debe retornar una lista con todas las recetas del paciente
             var expected = GetAllPatientPrescriptionPatient();
 
             CollectionAssert.AreEqual(expected, result);
@@ -399,7 +400,8 @@ namespace MedexTest.Controllers.Tests
 
             var sut = new ValuesController();
 
-            var result = GetAllPatientPrescription();  //sut.metodo debe retornar una lista con todas las recetas del paciente
+            var result = GetAllPatientPrescription(); //recibe por parametros el nombre del doctor y la lista
+            //sut.metodo debe retornar una lista con todas las recetas del paciente
             var expected = GetAllPatientPrescriptionDoctor();
 
             CollectionAssert.AreEqual(expected, result);
