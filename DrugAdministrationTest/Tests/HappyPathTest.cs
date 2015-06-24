@@ -391,6 +391,8 @@ namespace MedexTest.Controllers.Tests
             var expected = GetAllPatientPrescriptionPatient();
 
             CollectionAssert.AreEqual(expected, result);
+            //prueba que sea equivalente
+            Assert.That(expected, Is.EquivalentTo(result));
         }
 
         //5.2
@@ -400,7 +402,8 @@ namespace MedexTest.Controllers.Tests
 
             var sut = new ValuesController();
 
-            var result = GetAllPatientPrescription(); //recibe por parametros el nombre del doctor y la lista
+            var result = GetAllPatientPrescription(); // sut.metodo("Dr.House","Luis")
+            //recibe por parametros el nombre del nombre del paciente, nombre del doctor y la lista
             //sut.metodo debe retornar una lista con todas las recetas del paciente
             var expected = GetAllPatientPrescriptionDoctor();
 
@@ -413,7 +416,9 @@ namespace MedexTest.Controllers.Tests
 
             var sut = new ValuesController();
 
-            var result = GetAllPatientPrescription();  //sut.metodo debe retornar una lista con todas las recetas del paciente
+            var result = GetAllPatientPrescription();  //sut.metodo()
+            //por parametros se envia nombre del paciente, una fecha. debe regresar una lista con coicidencia del año 2015
+            //debe retornar una lista con todas las recetas del paciente
             var expected = GetAllPatientPrescriptionDateYear();
 
             CollectionAssert.AreEqual(expected, result);
@@ -426,7 +431,10 @@ namespace MedexTest.Controllers.Tests
 
             var sut = new ValuesController();
 
-            var result = GetAllPatientPrescription();  //sut.metodo debe retornar una lista con todas las recetas del paciente
+            var result = GetAllPatientPrescription();   //sut.metodo()
+                                                        //recibe por parametros nombre del paciente, y una fecha
+                                                        // luis, 2015/04/??
+                                                        //debe retornar una lista con todas las recetas del paciente
             var expected = GetAllPatientPrescriptionDateMoth();
 
             CollectionAssert.AreEqual(expected, result);
@@ -437,17 +445,17 @@ namespace MedexTest.Controllers.Tests
             var testPatientPrescription = new List<PatientPrescription>();
             DateTime date;
 
-            date = new DateTime(2015, 5, 1, 8, 30, 52);
+            date = new DateTime(2015, 4, 1, 8, 30, 52);
             testPatientPrescription.Add(new PatientPrescription("Luis", "Dr.House", date));
             date = new DateTime(2015, 5, 1, 9, 30, 52);
             testPatientPrescription.Add(new PatientPrescription("Jorge", "Dr.Simi", date));
-            date = new DateTime(2015, 5, 1, 10, 30, 52);
+            date = new DateTime(2015, 6, 1, 10, 30, 52);
             testPatientPrescription.Add(new PatientPrescription("Jorge", "Dr.House", date));
-            date = new DateTime(2016, 5, 1, 8, 30, 00);
+            date = new DateTime(2016, 4, 1, 8, 30, 00);
             testPatientPrescription.Add(new PatientPrescription("Jorge", "Dr.Simi", date));
             date = new DateTime(2016, 5, 1, 9, 30, 00);
             testPatientPrescription.Add(new PatientPrescription("Luis", "Dr.House", date));
-            date = new DateTime(2016, 5, 1, 10, 30, 00);
+            date = new DateTime(2016, 6, 1, 10, 30, 00);
             testPatientPrescription.Add(new PatientPrescription("Luis", "Dr.House", date));
 
             return testPatientPrescription;
@@ -460,11 +468,10 @@ namespace MedexTest.Controllers.Tests
 
             date = new DateTime(2015, 5, 1, 9, 30, 52);
             testPatientPrescription.Add(new PatientPrescription("Jorge", "Dr.Simi", date));
-            date = new DateTime(2015, 5, 1, 10, 30, 52);
+            date = new DateTime(2015, 6, 1, 10, 30, 52);
             testPatientPrescription.Add(new PatientPrescription("Jorge", "Dr.House", date));
-            date = new DateTime(2016, 5, 1, 8, 30, 00);
+            date = new DateTime(2016, 4, 1, 8, 30, 00);
             testPatientPrescription.Add(new PatientPrescription("Jorge", "Dr.Simi", date));
-
 
             return testPatientPrescription;
         }
@@ -474,11 +481,11 @@ namespace MedexTest.Controllers.Tests
             var testPatientPrescription = new List<PatientPrescription>();
             DateTime date;
 
-            date = new DateTime(2015, 5, 1, 8, 30, 52);
+            date = new DateTime(2015, 4, 1, 8, 30, 52);
             testPatientPrescription.Add(new PatientPrescription("Luis", "Dr.House", date));
             date = new DateTime(2016, 5, 1, 9, 30, 00);
             testPatientPrescription.Add(new PatientPrescription("Luis", "Dr.House", date));
-            date = new DateTime(2016, 5, 1, 10, 30, 00);
+            date = new DateTime(2016, 6, 1, 10, 30, 00);
             testPatientPrescription.Add(new PatientPrescription("Luis", "Dr.House", date));
 
             return testPatientPrescription;
@@ -489,11 +496,9 @@ namespace MedexTest.Controllers.Tests
             var testPatientPrescription = new List<PatientPrescription>();
             DateTime date;
 
-            date = new DateTime(2015, 5, 1, 8, 30, 52);
-            testPatientPrescription.Add(new PatientPrescription("Luis", "Dr.House", date));
             date = new DateTime(2015, 5, 1, 9, 30, 52);
             testPatientPrescription.Add(new PatientPrescription("Jorge", "Dr.Simi", date));
-            date = new DateTime(2015, 5, 1, 10, 30, 52);
+            date = new DateTime(2015, 6, 1, 10, 30, 52);
             testPatientPrescription.Add(new PatientPrescription("Jorge", "Dr.House", date));
 
             return testPatientPrescription;
@@ -504,17 +509,7 @@ namespace MedexTest.Controllers.Tests
             var testPatientPrescription = new List<PatientPrescription>();
             DateTime date;
 
-            date = new DateTime(2015, 5, 1, 8, 30, 52);
-            testPatientPrescription.Add(new PatientPrescription("Luis", "Dr.House", date));
-            date = new DateTime(2015, 5, 1, 9, 30, 52);
-            testPatientPrescription.Add(new PatientPrescription("Jorge", "Dr.Simi", date));
-            date = new DateTime(2015, 5, 1, 10, 30, 52);
-            testPatientPrescription.Add(new PatientPrescription("Jorge", "Dr.House", date));
-            date = new DateTime(2016, 5, 1, 8, 30, 00);
-            testPatientPrescription.Add(new PatientPrescription("Jorge", "Dr.Simi", date));
-            date = new DateTime(2016, 5, 1, 9, 30, 00);
-            testPatientPrescription.Add(new PatientPrescription("Luis", "Dr.House", date));
-            date = new DateTime(2016, 5, 1, 10, 30, 00);
+            date = new DateTime(2015, 4, 1, 8, 30, 52);
             testPatientPrescription.Add(new PatientPrescription("Luis", "Dr.House", date));
 
             return testPatientPrescription;
