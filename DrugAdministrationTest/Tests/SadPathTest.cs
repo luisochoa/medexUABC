@@ -335,14 +335,6 @@ namespace DrugAdministrationTest
 
         //g.1.2
         [Test]
-        public void Should()
-        {
-            var sut = new ValuesController();
-
-        }
-
-        //g.1.3
-        [Test]
         public void Should_Return_Null_Notification()
         {
             var sut = new ValuesController();
