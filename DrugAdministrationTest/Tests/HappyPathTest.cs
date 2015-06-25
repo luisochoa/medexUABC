@@ -13,26 +13,6 @@ namespace MedexTest.Controllers.Tests
     public class HappyPathTest
     {
         /// Debe generar un reporte "A"
-        /// Hola zules
-
-
-        ///** a1 **/
-        //[Test]
-        //public void ShouldReturnDateNonNull()
-        //{
-        //    //Disponer
-        //    var sut = new ValuesController();
-
-        //    // Actuar
-        //    string result = "2015/06/17"; //del metodo de obtener fecha se espera que roterne un valor diferente de nulo
-        //    string[] resultSeparation = result.Split('/');
-        //    string notExpected = null;
-    
-        //    //declarar
-        //    Assert.AreNotEqual(notExpected, resultSeparation[0]);
-        //    Assert.AreNotEqual(notExpected, resultSeparation[1]);
-        //    Assert.AreNotEqual(notExpected, resultSeparation[2]);
-        //}
 
         [Test]
         public void ShouldReturnDateOrderYearMonthDay()
@@ -55,45 +35,6 @@ namespace MedexTest.Controllers.Tests
             StringAssert.Contains(expected, result);
 
         }
-
-        //[Test]
-        //public void ShouldReturnDateNull()
-        //{
-        //    //Disponer
-        //    var sut = new ValuesController();
-
-        //    //Actuar
-        //    var result = DateTime.Today;  // se espera que retorne un null metodo de obtener fecha
-        //    DateTime? expected = null;
-
-        //    //Declarar
-        //    Assert.AreEqual(expected, result);
-
-        //}
-
-        /*A.2*/
-        //[Test]
-        //public void ShouldReturnTimeNotNull()
-        //{
-        //    DateTime dt = DateTime.Today;
-
-        //    //Disponer
-        //    var sut = new ValuesController();
-
-        //    //Actuar
-        //    //sut.metodo se espera que el metodo regrese un string con la hora
-        //    //el string se debe separar con split('/')
-
-        //    string resultHour = dt.Hour.ToString();
-        //    string resultMin = dt.Minute.ToString();
-        //    string resultSec = dt.Second.ToString();
-        //    string notExpected = null;
-
-        //    //Declarar
-        //    Assert.AreNotEqual(notExpected, resultHour);
-        //    Assert.AreNotEqual(notExpected, resultMin);
-        //    Assert.AreNotEqual(notExpected, resultSec);
-        //}
 
         [Test]
         public void ShouldReturnStringOrderHourMinuteSecond()
@@ -125,50 +66,6 @@ namespace MedexTest.Controllers.Tests
             Assert.IsTrue(typeof(DateTime).IsInstanceOfType(result));
             
         }
-
-        //[Test]
-        //public void ShouldReturnTimeWithinTheRange(){
-        //    DateTime dt = DateTime.Today;
-
-        //    //Disponer
-        //    var sut = new ValuesController();
-
-        //    //Actuar
-        //    string result = "12:12:12"; //sut metodo debe retonar el tiempo en string
-        //    string[] separationResult = result.Split(':');
-        //    string reultHour = separationResult[0];
-        //    string reultMin = separationResult[1];
-        //    string reultSec = separationResult[2];
-            
-        //    //nota duda de como debe ser el metodo
-        //}
-
-        /*A.3*/
-
-        //[Test]
-        //public void ShouldReturnNameNotNull() {
-        //    var sut = new ValuesController();
-
-        //    String result = "luis";  //sut.metodo el metodo debe retornar la captura debe retornar un nombre(string) 
-        //    String expected = null;
-
-        //    Assert.AreNotEqual(expected,result);
-        //}
-
-        //[Test]
-        //public void ShouldAddNewNamePerson() 
-        //{ 
-           
-        //    //Disponer
-        //    var sut = new ValuesController();
-            
-        //    //Actuar 
-        //    string[] result = new string[] {"luis"};// Se espera que envie un nombre y que regres un array con el nombre dentro 
-        //    string expected = "luis";
-
-        //    //Declarar
-        //    Assert.AreEqual(expected,result[0]);
-        //}
 
 
         /*
@@ -243,7 +140,7 @@ namespace MedexTest.Controllers.Tests
                 //y retorna la lista con el nuevo elemento agregado
             var result = rp.GetTestMedicine();  // modificar metodo 
             var expected = rp.GetTestMedicine();
-            expected.Add(new Medicine { Id = 6, Name = "Aspirina Plus++", Price = 1 });
+            expected.Add(new Medicine { Name = "Aspirina Plus++", Price = 1 });
 
             CollectionAssert.AreEqual(expected, result);
         }
@@ -292,11 +189,6 @@ namespace MedexTest.Controllers.Tests
             Assert.AreEqual(expected, result);
         }
 
-        //1.8 
-        /*  Para provar en el Happy path se compara entre el expediente medico y la nueva receta medica
-            
-         */
-
 
         //checar hacer cambios
         [Test]
@@ -304,9 +196,9 @@ namespace MedexTest.Controllers.Tests
             var sut = new ValuesController();
 
             var result = "reaccion adversa";//sut.metod();  La lista de los medicamentos 
-                //adversos del paciente y el nombre del nuevo medicamento
-                // Que el paciente presento reaccion adversa 
-                //y se retorna un mensaje de reaccion adversa 
+                                            //adversos del paciente y el nombre del nuevo medicamento
+                                            // Que el paciente presento reaccion adversa 
+                                            //y se retorna un mensaje de reaccion adversa 
             var expected = "reaccion adversa";
             
             Assert.AreEqual(expected, result);
@@ -318,8 +210,8 @@ namespace MedexTest.Controllers.Tests
             var sut = new ValuesController();
             PatientPrescription rp = new PatientPrescription();
 
-            var result = rp.GetTestSupplements(); //sut.metodo(Id = 3, Name = "Suplemento C" ,List)
-            //agrega un nuevo suplemento, se le envia el nombre y ID del suplemento
+            var result = rp.GetTestSupplements();   //sut.metodo(Id = 3, Name = "Suplemento C" ,List)
+                                                    //agrega un nuevo suplemento, se le envia el nombre y ID del suplemento
             var expected = rp.GetTestSupplements();
             expected.Add(new Supplements { Id = 3, Name = "Suplemento C" });
             
@@ -333,8 +225,8 @@ namespace MedexTest.Controllers.Tests
             PatientPrescription rp = new PatientPrescription();
 
 
-            var result = rp.GetTestSupplements(); //sut.metodo eliminar un elemento de la lista recibe por 
-            //parametros la lista y el nombre del suplemento
+            var result = rp.GetTestSupplements();   //sut.metodo eliminar un elemento de la lista recibe por 
+                                                    //parametros la lista y el nombre del suplemento
             var expected = rp.GetTestSupplements();
             expected.RemoveAt(1);
 
@@ -539,8 +431,6 @@ namespace MedexTest.Controllers.Tests
             return testPatientPrescription;
         }
         
-        
-
         //5.5 ventana de empleo
         [Test]
         public void ShouldAddDetailsForUse()
@@ -548,7 +438,7 @@ namespace MedexTest.Controllers.Tests
             var sut = new ValuesController();
 
             var result = true;  //sut.metodo se envia 4 parametros la lista de medicamento y 
-            //dosis, via de administracion y periodo
+                                //dosis, via de administracion y periodo
             var expected = true;
 
             Assert.AreEqual(expected, result);

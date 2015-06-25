@@ -68,11 +68,11 @@ namespace DrugAdministrationTest.Tests
         public List < Medicine > GetTestMedicine()
         {
             var TestMedicine = new List <Medicine>();
-            TestMedicine.Add(new Medicine { Id = 1, Name = "Aspirina bayer", Price = 1, modoEmpleo = new ModoEmpleo() });
-            TestMedicine.Add(new Medicine { Id = 2, Name = "Aspirina Forte", Price = 1, modoEmpleo = new ModoEmpleo() });
-            TestMedicine.Add(new Medicine { Id = 3, Name = "Sedalmerck", Price = 1, modoEmpleo = new ModoEmpleo() });
-            TestMedicine.Add(new Medicine { Id = 4, Name = "Aspirina bayer", Price = 1, modoEmpleo = new ModoEmpleo() });
-            TestMedicine.Add(new Medicine { Id = 5, Name = "Sedalmerck plus", Price = 1, modoEmpleo = new ModoEmpleo() });
+            TestMedicine.Add(new Medicine { Name = "Aspirina bayer", Price = 1, modoEmpleo = new HowToUse() });
+            TestMedicine.Add(new Medicine { Name = "Aspirina Forte", Price = 1, modoEmpleo = new HowToUse() });
+            TestMedicine.Add(new Medicine { Name = "Sedalmerck", Price = 1, modoEmpleo = new HowToUse() });
+            TestMedicine.Add(new Medicine { Name = "Aspirina bayer", Price = 1, modoEmpleo = new HowToUse() });
+            TestMedicine.Add(new Medicine { Name = "Sedalmerck plus", Price = 1, modoEmpleo = new HowToUse() });
 
             return TestMedicine;
         }

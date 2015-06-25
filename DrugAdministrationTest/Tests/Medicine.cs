@@ -7,9 +7,8 @@ namespace DrugAdministrationTest.Tests
 {
     class Medicine
     {
-        public int Id { get; set; }
         public string Name { get; set; }
         public decimal Price { get; set; }
-        public ModoEmpleo modoEmpleo { get; set; }
+        public HowToUse modoEmpleo { get; set; }
     }
 }
