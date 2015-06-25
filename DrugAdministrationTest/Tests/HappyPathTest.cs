@@ -450,6 +450,20 @@ namespace MedexTest.Controllers.Tests
             CollectionAssert.AreEqual(expected, result);
         }
 
+        //5.4
+        [Test]
+        public void ShouldReturnTheDetailsOfThePrescription()
+        {
+            var sut = new ValuesController();
+
+            var result = GetAllPatientPrescription();   //sut.metodo
+                                                    //se envia por parametros la lista y la especificacion de la receta
+                                                    //simula que selecciono una receta
+            var expect = GetAllPatientPrescription();
+
+            Assert.AreEqual(expect[0],result);
+        }
+
         public List<PatientPrescription> GetAllPatientPrescription()
         {
             var testPatientPrescription = new List<PatientPrescription>();
@@ -523,6 +537,21 @@ namespace MedexTest.Controllers.Tests
             testPatientPrescription.Add(new PatientPrescription("Luis", "Dr.House", date));
 
             return testPatientPrescription;
+        }
+        
+        
+
+        //5.5 ventana de empleo
+        [Test]
+        public void ShouldAddDetailsForUse()
+        {
+            var sut = new ValuesController();
+
+            var result = true;  //sut.metodo se envia 4 parametros la lista de medicamento y 
+            //dosis, via de administracion y periodo
+            var expected = true;
+
+            Assert.AreEqual(expected, result);
         }
     }
 }

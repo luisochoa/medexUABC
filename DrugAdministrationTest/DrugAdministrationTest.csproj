@@ -61,6 +61,7 @@
     <Compile Include="Tests\HappyPathTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Tests\Medicine.cs" />
+    <Compile Include="Tests\ModoEmpleo.cs" />
     <Compile Include="Tests\NonexistentMedicines.cs" />
     <Compile Include="Tests\Patient.cs" />
     <Compile Include="Tests\PatientPrescription.cs" />
