@@ -14,6 +14,7 @@ namespace MedexTest.Controllers.Tests
     {
         /// Debe generar un reporte "A"
 
+        //1.3
         [Test]
         public void ShouldReturnDateOrderYearMonthDay()
         {
@@ -36,6 +37,7 @@ namespace MedexTest.Controllers.Tests
 
         }
 
+        //2.3
         [Test]
         public void ShouldReturnStringOrderHourMinuteSecond()
         {
@@ -52,20 +54,20 @@ namespace MedexTest.Controllers.Tests
             Assert.AreEqual(expected, result);
         }
 
-        [Test]
-        public void ShouldReturnTypeDataDatetime()
-        { 
-            //Disponer
-            var sut = new ValuesController();
+        //[Test]
+        //public void ShouldReturnTypeDataDatetime()
+        //{ 
+        //    //Disponer
+        //    var sut = new ValuesController();
 
-            //Actuar
-            DateTime result = DateTime.Now;  //sut.metodo retorna un tipo de dato datetime
-            DateTime expected = DateTime.Now;
+        //    //Actuar
+        //    DateTime result = DateTime.Now;  //sut.metodo retorna un tipo de dato datetime
+        //    DateTime expected = DateTime.Now;
             
-            //Declarar 
-            Assert.IsTrue(typeof(DateTime).IsInstanceOfType(result));
+        //    //Declarar 
+        //    Assert.IsTrue(typeof(DateTime).IsInstanceOfType(result));
             
-        }
+        //}
 
 
         /*
@@ -189,8 +191,6 @@ namespace MedexTest.Controllers.Tests
             Assert.AreEqual(expected, result);
         }
 
-
-        //checar hacer cambios
         [Test]
         public void ShouldReturnMessageAdverseReaction() {
             var sut = new ValuesController();
@@ -431,6 +431,7 @@ namespace MedexTest.Controllers.Tests
             return testPatientPrescription;
         }
         
+       
         //5.5 ventana de empleo
         [Test]
         public void ShouldAddDetailsForUse()
