@@ -5,7 +5,7 @@ using System.Text;
 
 namespace DrugAdministrationTest.Tests
 {
-    class Medicine
+    public class Medicine
     {
         public string Name { get; set; }
         public decimal Price { get; set; }

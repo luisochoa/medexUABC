@@ -274,7 +274,7 @@ namespace MedexTest.Controllers.Tests
 
         public List<Patient> GetAllPatients()
         {
-            var testPatients = new List<Patient>();
+            List<Patient> testPatients = new List<Patient>();
 
             testPatients.Add(new Patient { Name = "Luis" });
             testPatients.Add(new Patient { Name = "Jorge" });

@@ -5,7 +5,7 @@ using System.Text;
 
 namespace DrugAdministrationTest.Tests
 {
-    class NonexistentMedicines
+    public class NonexistentMedicines
     {
         public string Name { get; set; }
     }

@@ -5,7 +5,7 @@ using System.Text;
 
 namespace DrugAdministrationTest.Tests
 {
-    class Supplements
+    public class Supplements
     {
         public int Id { get; set; }
 

@@ -1,9 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
-using System.Collections.Generic;
-using System.Globalization;
 
 
 namespace DrugAdministrationTest.Tests
@@ -76,7 +75,6 @@ namespace DrugAdministrationTest.Tests
 
             return TestMedicine;
         }
-
 
         public List< Supplements > GetTestSupplements()
         {

@@ -5,7 +5,7 @@ using System.Text;
 
 namespace DrugAdministrationTest.Tests
 {
-    class HowToUse
+    public class HowToUse
     {
         public string Dosis { get; set; }
         public string ViaAdministracion { get; set; }
